@@ -12,6 +12,7 @@ const rollDiceResultRoute = require("./src/routes/diceRollRoute.js");
 const authRoute = require("./src/routes/authRoute.js");
 
 app.use(cors());
+app.options("*", cors());
 app.use(express.json());
 
 const MONGO_URL = process.env.MONGO_URL;
