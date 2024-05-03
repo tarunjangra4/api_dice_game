@@ -29,6 +29,8 @@ mongoose
     console.log("error ", error);
   });
 
+app.use("/user", authRoute);
+
 app.use((req, res, next) => {
   const authHeaders = req.headers.authorization;
   const token = authHeaders.split(" ")[1];
@@ -42,8 +44,6 @@ app.use((req, res, next) => {
     next(); // pass the execution off to whatever request the client intended
   });
 });
-
-app.use("/user", authRoute);
 
 app.use("/points", userPointsRoute);
 
